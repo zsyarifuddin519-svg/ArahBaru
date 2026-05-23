@@ -53,14 +53,6 @@
 									
 									<li><a href="login-signup-form-animation/dist/login.html" id="menu-login">Login</a></li>
 									
-									<li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
-								      </a>
-								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="login-signup-form-animation/dist/login.html">login</a>
-								        <a class="dropdown-item" href="elements.html">Elements</a>
-								      </div>
 								    </li>
 							    </ul>
 							  </div>						
@@ -78,7 +70,7 @@
 						if (isLoggedIn === 'true' && menuLogin) {
 							
 							// Ubah teks tombol menjadi Halo, nama | LOG OUT
-							menuLogin.innerHTML = `Halo, ${username} <span style="margin: 0 5px; color: rgba(255,255,255,0.4); font-weight: normal;">|</span> LOG OUT`;
+							menuLogin.innerHTML = `Halo, ${username} <span style="margin: 0 5px; color: rgba(255,255,255,0.4); font-weight: normal;">|</span> Log Out`;
 							
 							// Nonaktifkan link agar tidak kembali ke form login
 							menuLogin.setAttribute('href', '#');
