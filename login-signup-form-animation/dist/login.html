@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <title>login/signup form animation</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../style.css">
   </head>
     
   <body>
@@ -29,21 +29,18 @@
 	</div>
 </div>
 
-    <script src="./script.js"></script>
+    <script src="../script.js"></script>
 
     <script>
-        // Menunggu sampai seluruh halaman selesai dimuat
         window.addEventListener('DOMContentLoaded', () => {
-            // Ambil semua tombol yang punya class 'submit-btn'
             const tombolSubmit = document.querySelectorAll('.submit-btn');
             
             tombolSubmit.forEach((tombol) => {
-                // Paksa pasang perintah klik langsung ke tombolnya
                 tombol.onclick = function(event) {
-                    event.preventDefault(); // Stop fungsi bawaan lain jika ada
-                    event.stopPropagation(); // Stop agar tidak memicu animasi slide up/down
+                    event.preventDefault(); 
+                    event.stopPropagation(); 
                     
-                    // Langsung pindah ke halaman utama
+                    // Kembali ke index.html utama di folder root ArahBaru
                     window.location.href = '../../index.html';
                 };
             });
