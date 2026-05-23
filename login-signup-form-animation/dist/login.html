@@ -3,30 +3,33 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>login/signup form animation</title>
+    <title>login dan signup </title>
     <link rel="stylesheet" href="./style.css">
   </head>
     
   <body>
   <div class="form-structor">
-	<div class="signup">
-		<h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
-		<div class="form-holder">
-			<input type="text" id="username" placeholder="Name" />
-			<input type="password" id="password" placeholder="Password" />
-		</div>
-		<button class="submit-btn">Sign up</button>
-	</div>
-	<div class="login slide-up">
-		<div class="center">
-			<h2 class="form-title" id="login"><span>or</span>Log in</h2>
-			<div class="form-holder">
-				<input type="text" id="username" placeholder="Name" />
-				<input type="password" id="password" placeholder="Password" />
-			</div>
-			<button class="submit-btn">Log in</button>
-		</div>
-	</div>
+    
+    <div class="login">
+        <div class="center">
+            <h2 class="form-title" id="login">Log in</h2>
+            <div class="form-holder">
+                <input type="text" id="username" placeholder="Name" />
+                <input type="password" id="password" placeholder="Password" />
+            </div>
+            <button class="submit-btn">Log in</button>
+        </div>
+    </div>
+
+    <div class="signup slide-up">
+        <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+        <div class="form-holder">
+            <input type="text" id="username" placeholder="Name" />
+            <input type="password" id="password" placeholder="Password" />
+        </div>
+        <button class="submit-btn">Sign up</button>
+    </div>
+
 </div>
 
     <script src="./script.js"></script>
@@ -39,9 +42,6 @@
                 tombol.onclick = function(event) {
                     event.preventDefault(); 
                     event.stopPropagation(); 
-                    
-                    // Mundur 2 kali untuk keluar dari folder 'dist' dan 'login-signup-...'
-                    // menuju index.html utama milik template Adventure kamu.
                     window.location.href = '../../index.html';
                 };
             });
