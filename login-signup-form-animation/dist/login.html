@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <title>login/signup form animation</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
   </head>
     
   <body>
@@ -29,7 +29,7 @@
 	</div>
 </div>
 
-    <script src="../script.js"></script>
+    <script src="./script.js"></script>
 
     <script>
         window.addEventListener('DOMContentLoaded', () => {
@@ -40,7 +40,8 @@
                     event.preventDefault(); 
                     event.stopPropagation(); 
                     
-                    // Kembali ke index.html utama di folder root ArahBaru
+                    // Mundur 2 kali untuk keluar dari folder 'dist' dan 'login-signup-...'
+                    // menuju index.html utama milik template Adventure kamu.
                     window.location.href = '../../index.html';
                 };
             });
