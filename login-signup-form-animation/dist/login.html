@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>login dan signup </title>
+    <title>login dan signup</title>
     <link rel="stylesheet" href="./style.css">
   </head>
     
@@ -14,8 +14,8 @@
         <div class="center">
             <h2 class="form-title" id="login">Log in</h2>
             <div class="form-holder">
-                <input type="text" id="username" placeholder="Name" />
-                <input type="password" id="password" placeholder="Password" />
+                <input type="text" class="input-nama" placeholder="Name" />
+                <input type="password" placeholder="Password" />
             </div>
             <button class="submit-btn">Log in</button>
         </div>
@@ -24,8 +24,8 @@
     <div class="signup slide-up">
         <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
         <div class="form-holder">
-            <input type="text" id="username" placeholder="Name" />
-            <input type="password" id="password" placeholder="Password" />
+            <input type="text" class="input-nama" placeholder="Name" />
+            <input type="password" placeholder="Password" />
         </div>
         <button class="submit-btn">Sign up</button>
     </div>
@@ -42,6 +42,23 @@
                 tombol.onclick = function(event) {
                     event.preventDefault(); 
                     event.stopPropagation(); 
+                    
+                    // Cari input nama yang berada di dalam satu kotak form dengan tombol yang diklik
+                    const formInduk = tombol.parentElement;
+                    const inputNama = formInduk.querySelector('.input-nama');
+                    const namaUser = inputNama ? inputNama.value.trim() : "";
+
+                    // Jika user mengisi nama, simpan namanya. Jika kosong, beri nama default "Petualang"
+                    if (namaUser !== "") {
+                        localStorage.setItem('username', namaUser);
+                    } else {
+                        localStorage.setItem('username', 'Petualang');
+                    }
+                    
+                    // Tandai status login aktif di memori browser
+                    localStorage.setItem('isLoggedIn', 'true');
+                    
+                    // Paksa browser keluar folder dist dan masuk ke index.html utama
                     window.location.href = '../../index.html';
                 };
             });
