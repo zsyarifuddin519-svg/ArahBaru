@@ -33,7 +33,7 @@
 			<section class="banner-area" id="home">
 				<!-- Start Header Area -->
 				<header class="default-header">
-					<nav class="navbar navbar-expand-lg  navbar-light">
+					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container">
 							  <a class="navbar-brand" href="index.html">
 							  	<img src="img/logo.png" alt="">
@@ -50,9 +50,10 @@
 									<li><a href="#gallery">Gallery</a></li>
 									<li><a href="#faq">Faq</a></li>
 									<li><a href="#contact">Contact</a></li>
-									<li><a href="login-signup-form-animation/dist/login.html">Login</a></li>
-									<!-- Dropdown -->
-								    <li class="dropdown">
+									
+									<li><a href="login-signup-form-animation/dist/login.html" id="menu-login">Login</a></li>
+									
+									<li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 								        Pages
 								      </a>
@@ -66,6 +67,35 @@
 						</div>
 					</nav>
 				</header>
+				<script>
+					window.addEventListener('DOMContentLoaded', () => {
+						// Ambil data session dari penyimpanan lokal browser
+						const isLoggedIn = localStorage.getItem('isLoggedIn');
+						const username = localStorage.getItem('username');
+						const menuLogin = document.getElementById('menu-login');
+
+						// Jika terdeteksi user berhasil login
+						if (isLoggedIn === 'true' && menuLogin) {
+							
+							// Ubah teks tombol menjadi Halo, nama | LOG OUT
+							menuLogin.innerHTML = `Halo, ${username} <span style="margin: 0 5px; color: rgba(255,255,255,0.4); font-weight: normal;">|</span> LOG OUT`;
+							
+							// Nonaktifkan link agar tidak kembali ke form login
+							menuLogin.setAttribute('href', '#');
+							
+							// Mematikan paksaan teks kapital bawaan Bootstrap jika ada
+							menuLogin.style.textTransform = 'none'; 
+
+							// Fungsi hapus session ketika tombol LOG OUT ditekan
+							menuLogin.onclick = function(e) {
+								e.preventDefault();
+								localStorage.removeItem('isLoggedIn');
+								localStorage.removeItem('username');
+								window.location.reload(); // Refresh untuk kembali ke tampilan "Login"
+							};
+						}
+					});
+				</script>
 				<!-- End Header Area -->				
 			</section>
 
