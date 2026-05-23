@@ -1,16 +1,55 @@
-<div class="signup">
-    <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
-    <div class="form-holder">
-        <input type="text" id="username" placeholder="Name" />
-        <input type="password" id="password" placeholder="Password" />
-    </div>
-    <button class="submit-btn">Sign up</button> </div>
-<div class="login slide-up">
-    <div class="center">
-        <h2 class="form-title" id="login"><span>or</span>Log in</h2>
-        <div class="form-holder">
-            <input type="text" id="username" placeholder="Name" />
-            <input type="password" id="password" placeholder="Password" />
-        </div>
-        <button class="submit-btn">Log in</button> </div>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>login/signup form animation</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+    
+  <body>
+  <div class="form-structor">
+	<div class="signup">
+		<h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+		<div class="form-holder">
+			<input type="text" id="username" placeholder="Name" />
+			<input type="password" id="password" placeholder="Password" />
+		</div>
+		<button class="submit-btn">Sign up</button>
+	</div>
+	<div class="login slide-up">
+		<div class="center">
+			<h2 class="form-title" id="login"><span>or</span>Log in</h2>
+			<div class="form-holder">
+				<input type="text" id="username" placeholder="Name" />
+				<input type="password" id="password" placeholder="Password" />
+			</div>
+			<button class="submit-btn">Log in</button>
+		</div>
+	</div>
 </div>
+
+    <script src="./script.js"></script>
+
+    <script>
+        // Menunggu sampai seluruh halaman selesai dimuat
+        window.addEventListener('DOMContentLoaded', () => {
+            // Ambil semua tombol yang punya class 'submit-btn'
+            const tombolSubmit = document.querySelectorAll('.submit-btn');
+            
+            tombolSubmit.forEach((tombol) => {
+                // Paksa pasang perintah klik langsung ke tombolnya
+                tombol.onclick = function(event) {
+                    event.preventDefault(); // Stop fungsi bawaan lain jika ada
+                    event.stopPropagation(); // Stop agar tidak memicu animasi slide up/down
+                    
+                    // Langsung pindah ke halaman utama
+                    window.location.href = '../../index.html';
+                };
+            });
+        });
+    </script>
+
+  </body>
+  
+</html>
