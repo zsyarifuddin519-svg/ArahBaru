@@ -43,22 +43,43 @@
                     event.preventDefault(); 
                     event.stopPropagation(); 
                     
-                    // Cari input nama yang berada di dalam satu kotak form dengan tombol yang diklik
+                    // Cari form induk tempat tombol berada
                     const formInduk = tombol.parentElement;
+                    
+                    // Ambil input nama dan password di dalam form tersebut
                     const inputNama = formInduk.querySelector('.input-nama');
+                    const inputPassword = formInduk.querySelector('input[type="password"]');
+                    
                     const namaUser = inputNama ? inputNama.value.trim() : "";
+                    const passwordUser = inputPassword ? inputPassword.value : "";
 
-                    // Jika user mengisi nama, simpan namanya. Jika kosong, beri nama default "Petualang"
+                    // Cek apakah ini tombol Log in atau Sign up berdasarkan teks tombol
+                    const isLoginBtn = tombol.textContent.toLowerCase().includes('log in');
+
+                    // --- JALUR LOGIN ADMIN ---
+                    if (isLoginBtn) {
+                        if (namaUser === 'admin' && passwordUser === '123') {
+                            localStorage.setItem('username', 'Admin');
+                            localStorage.setItem('isLoggedIn', 'true');
+                            localStorage.setItem('role', 'admin'); 
+                            
+                            // Masuk ke halaman admin
+                            window.location.href = '../../admin.html';
+                            return; 
+                        }
+                    }
+
+                    // --- JALUR USER BIASA (Log in biasa / Sign up) ---
                     if (namaUser !== "") {
                         localStorage.setItem('username', namaUser);
                     } else {
                         localStorage.setItem('username', 'Petualang');
                     }
                     
-                    // Tandai status login aktif di memori browser
                     localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('role', 'user');
                     
-                    // Paksa browser keluar folder dist dan masuk ke index.html utama
+                    // Masuk ke halaman utama website
                     window.location.href = '../../index.html';
                 };
             });
